@@ -141,21 +141,6 @@ namespace OrderSystem.PresentationLayer
              registrationForm.Show();
         }
 
-        private void pickingListToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (pickingListForm == null)
-            {
-                CreateNewPickingListForm();
-            }
-
-            if (pickingListForm.listFormClosed)
-            {
-                CreateNewPickingListForm();
-            }
-
-            pickingListForm.Show();
-        }
-
         private void createOrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (createOrderForm == null)
@@ -171,20 +156,6 @@ namespace OrderSystem.PresentationLayer
             createOrderForm.Show();
         }
 
-        private void expiredProductsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (expiredProductsForm == null)
-            {
-                CreateNewExpiredProductsForm();
-            }
-
-            if (expiredProductsForm.productsFormClosed)
-            {
-                CreateNewExpiredProductsForm();
-            }
-
-            expiredProductsForm.Show();
-        }
         private void salesReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (reportingForm == null)
@@ -253,33 +224,65 @@ namespace OrderSystem.PresentationLayer
         {
             loginToolStripMenuItem.Visible = false;
             logoutToolStripMenuItem.Visible = true;
-            printToolStripMenuItem1.Visible = true;
+            //printToolStripMenuItem1.Visible = true;
             createOrderToolStripMenuItem.Visible = false;
             registerCustomerToolStripMenuItem.Visible = false;
-            salesReportToolStripMenuItem.Visible = false;
+            expiryReport.Visible = true;
+            reportsToolStripMenuItem.Visible = true;
+            //salesReportToolStripMenuItem.Visible = false;
         }
 
         public void TellerSellerLogin()
         {
             loginToolStripMenuItem.Visible = false;
             logoutToolStripMenuItem.Visible = true;
-            printToolStripMenuItem1.Visible = false;
+            //printToolStripMenuItem1.Visible = true;
             createOrderToolStripMenuItem.Visible = true;
             registerCustomerToolStripMenuItem.Visible = true;
+            reportsToolStripMenuItem.Visible = true;
             //salesReportToolStripMenuItem.Visible = true;
+            expiryReport.Visible = true;
         }
 
         public void HideAll()
         {
             registerCustomerToolStripMenuItem.Visible = false;
             createOrderToolStripMenuItem.Visible = false;
-            printToolStripMenuItem1.Visible = false;
+            //printToolStripMenuItem1.Visible = false;
             logoutToolStripMenuItem.Visible = false;
             loginToolStripMenuItem.Visible = true;
-            salesReportToolStripMenuItem.Visible = false;
+            //salesReportToolStripMenuItem.Visible = false;
         }
 
 
         #endregion
+
+        private void expiryReport_Click(object sender, EventArgs e)
+        {
+            if(expiredProductsForm == null)
+            {
+                CreateNewExpiredProductsForm();
+            }
+            if (expiredProductsForm.productsFormClosed)
+            {
+                CreateNewExpiredProductsForm();
+            }
+            expiredProductsForm.Show();
+        }
+
+        private void pickingListToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (pickingListForm == null)
+            {
+                CreateNewPickingListForm();
+            }
+
+            if (pickingListForm.listFormClosed)
+            {
+                CreateNewPickingListForm();
+            }
+
+            pickingListForm.Show();
+        }
     }
 }

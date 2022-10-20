@@ -51,16 +51,17 @@
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.printToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pickingListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.expiredProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registerCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewCatalogueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.salesReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.expiryReport = new System.Windows.Forms.ToolStripMenuItem();
+            this.quantityInStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pickingListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -231,30 +232,6 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.aboutToolStripMenuItem.Text = "&About ... ...";
             // 
-            // printToolStripMenuItem1
-            // 
-            this.printToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pickingListToolStripMenuItem,
-            this.expiredProductsToolStripMenuItem});
-            this.printToolStripMenuItem1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.printToolStripMenuItem1.Name = "printToolStripMenuItem1";
-            this.printToolStripMenuItem1.Size = new System.Drawing.Size(45, 20);
-            this.printToolStripMenuItem1.Text = "Print";
-            // 
-            // pickingListToolStripMenuItem
-            // 
-            this.pickingListToolStripMenuItem.Name = "pickingListToolStripMenuItem";
-            this.pickingListToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.pickingListToolStripMenuItem.Text = "Picking List";
-            this.pickingListToolStripMenuItem.Click += new System.EventHandler(this.pickingListToolStripMenuItem_Click);
-            // 
-            // expiredProductsToolStripMenuItem
-            // 
-            this.expiredProductsToolStripMenuItem.Name = "expiredProductsToolStripMenuItem";
-            this.expiredProductsToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.expiredProductsToolStripMenuItem.Text = "Expired Products";
-            this.expiredProductsToolStripMenuItem.Click += new System.EventHandler(this.expiredProductsToolStripMenuItem_Click);
-            // 
             // registerCustomerToolStripMenuItem
             // 
             this.registerCustomerToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -300,13 +277,13 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenu,
             this.helpMenu,
-            this.printToolStripMenuItem1,
             this.registerCustomerToolStripMenuItem,
             this.createOrderToolStripMenuItem,
             this.viewCatalogueToolStripMenuItem,
+            this.reportsToolStripMenuItem,
+            this.customersToolStripMenuItem,
             this.loginToolStripMenuItem,
-            this.logoutToolStripMenuItem,
-            this.salesReportToolStripMenuItem});
+            this.logoutToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
@@ -314,13 +291,45 @@
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
-            // salesReportToolStripMenuItem
+            // reportsToolStripMenuItem
             // 
-            this.salesReportToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salesReportToolStripMenuItem.Name = "salesReportToolStripMenuItem";
-            this.salesReportToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
-            this.salesReportToolStripMenuItem.Text = "Sales Report";
-            this.salesReportToolStripMenuItem.Click += new System.EventHandler(this.salesReportToolStripMenuItem_Click);
+            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.expiryReport,
+            this.quantityInStockToolStripMenuItem,
+            this.pickingListToolStripMenuItem1});
+            this.reportsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.reportsToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.reportsToolStripMenuItem.Text = "Reports";
+            // 
+            // expiryReport
+            // 
+            this.expiryReport.Name = "expiryReport";
+            this.expiryReport.Size = new System.Drawing.Size(170, 22);
+            this.expiryReport.Text = "Expiry Report";
+            this.expiryReport.Click += new System.EventHandler(this.expiryReport_Click);
+            // 
+            // quantityInStockToolStripMenuItem
+            // 
+            this.quantityInStockToolStripMenuItem.Name = "quantityInStockToolStripMenuItem";
+            this.quantityInStockToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.quantityInStockToolStripMenuItem.Text = "Quantity in Stock";
+            // 
+            // pickingListToolStripMenuItem1
+            // 
+            this.pickingListToolStripMenuItem1.Name = "pickingListToolStripMenuItem1";
+            this.pickingListToolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
+            this.pickingListToolStripMenuItem1.Text = "Picking List";
+            this.pickingListToolStripMenuItem1.Click += new System.EventHandler(this.pickingListToolStripMenuItem1_Click);
+            // 
+            // customersToolStripMenuItem
+            // 
+            this.customersToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.customersToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
+            this.customersToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.customersToolStripMenuItem.Text = "Customers";
             // 
             // label1
             // 
@@ -387,17 +396,18 @@
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem pickingListToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem expiredProductsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registerCustomerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createOrderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewCatalogueToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem salesReportToolStripMenuItem;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem expiryReport;
+        private System.Windows.Forms.ToolStripMenuItem quantityInStockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem customersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pickingListToolStripMenuItem1;
     }
 }
 

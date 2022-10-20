@@ -161,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\OrderSystem.exe.config" />
     <None Include="PoppelDataSet.xsc">
       <DependentUpon>PoppelDataSet.xsd</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -181,6 +182,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\OrderSystem.exe" />
+    <Content Include="bin\Debug\OrderSystem.pdb" />
     <Content Include="Poppel.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
