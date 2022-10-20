@@ -32,6 +32,7 @@ namespace OrderSystem.PresentationLayer
             itemsListView.Columns.Insert(0, "Product ID", 125, HorizontalAlignment.Left);
             itemsListView.Columns.Insert(1, "Product Name", 125, HorizontalAlignment.Left);
             itemsListView.Columns.Insert(2, "Price", 125, HorizontalAlignment.Left);
+            itemsListView.Columns.Insert(3, "Quantity In Stock", 125, HorizontalAlignment.Left);
             Collection<Product> allProducts = productController.AllProducts; //.FindByStatus(Product.productStatus.notExpired);  // putting all products in a collection
 
             foreach (Product eachProduct in allProducts)      // iterating through items and adding them
@@ -40,6 +41,7 @@ namespace OrderSystem.PresentationLayer
                 itemDetails.Text = eachProduct.ProductID;
                 itemDetails.SubItems.Add(eachProduct.ProductName);
                 itemDetails.SubItems.Add("R " + eachProduct.Price.ToString());
+                itemDetails.SubItems.Add(eachProduct.QuantityInStock.ToString());
                 itemsListView.Items.Add(itemDetails);
             }
 

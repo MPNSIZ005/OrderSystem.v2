@@ -102,6 +102,12 @@
     <Compile Include="PresentationLayer\CreateOrderForm.Designer.cs">
       <DependentUpon>CreateOrderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\CustomersReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\CustomersReport.Designer.cs">
+      <DependentUpon>CustomersReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\ExpiredProductsForm.cs">
       <SubType>Form</SubType>
     </Compile>
