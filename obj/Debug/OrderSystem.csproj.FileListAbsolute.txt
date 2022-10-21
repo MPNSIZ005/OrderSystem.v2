@@ -140,4 +140,3 @@ C:\Users\mpnsiz005\Downloads\OrderSystem.v2\obj\Debug\OrderSystem.csproj.CoreCom
 C:\Users\mpnsiz005\Downloads\OrderSystem.v2\obj\Debug\OrderSystem.exe
 C:\Users\mpnsiz005\Downloads\OrderSystem.v2\obj\Debug\OrderSystem.pdb
 C:\Users\mpnsiz005\Desktop\OrderSystem.v2\obj\Debug\OrderSystem.PresentationLayer.CustomerForm.resources
-C:\Users\mpnsiz005\Desktop\OrderSystem.v2\obj\Debug\OrderSystem.csprojAssemblyReference.cache
