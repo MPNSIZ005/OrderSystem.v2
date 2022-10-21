@@ -69,7 +69,7 @@ namespace OrderSystem
         {
             string customerID = name.ToUpper().Substring(0,3);
             customerID = customerID + surname.ToUpper().Substring(0, 3);
-            customerID = customerID + idNumber.Substring(0, 6);
+            customerID = customerID + idNumber.Substring(0, 3);
             return customerID;
         }
 

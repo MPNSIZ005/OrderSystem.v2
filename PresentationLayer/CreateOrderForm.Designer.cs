@@ -68,8 +68,8 @@
             // 
             // clearButton
             // 
-            this.clearButton.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearButton.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.clearButton.Font = new System.Drawing.Font("Arial Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearButton.Location = new System.Drawing.Point(364, 362);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(97, 44);
@@ -92,7 +92,8 @@
             // submitButton
             // 
             this.submitButton.BackColor = System.Drawing.Color.LightGreen;
-            this.submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitButton.Font = new System.Drawing.Font("Arial Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.submitButton.Location = new System.Drawing.Point(619, 362);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(90, 44);
@@ -103,8 +104,8 @@
             // 
             // CloseButton
             // 
-            this.CloseButton.BackColor = System.Drawing.Color.SpringGreen;
-            this.CloseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CloseButton.BackColor = System.Drawing.Color.SteelBlue;
+            this.CloseButton.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CloseButton.Location = new System.Drawing.Point(500, 362);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(84, 44);
