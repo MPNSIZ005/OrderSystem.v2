@@ -37,9 +37,9 @@
             // itemsListView
             // 
             this.itemsListView.HideSelection = false;
-            this.itemsListView.Location = new System.Drawing.Point(27, 85);
+            this.itemsListView.Location = new System.Drawing.Point(230, 103);
             this.itemsListView.Name = "itemsListView";
-            this.itemsListView.Size = new System.Drawing.Size(372, 224);
+            this.itemsListView.Size = new System.Drawing.Size(599, 368);
             this.itemsListView.TabIndex = 0;
             this.itemsListView.UseCompatibleStateImageBehavior = false;
             // 
@@ -47,9 +47,9 @@
             // 
             this.closeButton.BackColor = System.Drawing.Color.SlateGray;
             this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeButton.Location = new System.Drawing.Point(163, 326);
+            this.closeButton.Location = new System.Drawing.Point(476, 517);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(95, 35);
+            this.closeButton.Size = new System.Drawing.Size(101, 51);
             this.closeButton.TabIndex = 1;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = false;
@@ -60,7 +60,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Showcard Gothic", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Location = new System.Drawing.Point(36, 13);
+            this.label1.Location = new System.Drawing.Point(337, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(309, 33);
             this.label1.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(86, 55);
+            this.label2.Location = new System.Drawing.Point(386, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(208, 18);
             this.label2.TabIndex = 3;
@@ -81,15 +81,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.Turquoise;
-            this.ClientSize = new System.Drawing.Size(424, 399);
+            this.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.ClientSize = new System.Drawing.Size(1139, 656);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.itemsListView);
             this.Name = "CatalogueForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Catalogue";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 

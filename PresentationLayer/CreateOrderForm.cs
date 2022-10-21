@@ -108,5 +108,11 @@ namespace OrderSystem.PresentationLayer
         }
 
         #endregion
+
+        private void CloseButton_Click(object sender, System.EventArgs e)
+        {
+            createOrderFormClosed = true;
+            //this.Close();
+        }
     }
 }

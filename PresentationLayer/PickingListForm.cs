@@ -24,11 +24,7 @@ namespace OrderSystem.PresentationLayer
         private Order order;
         private Employee employee;
 
-        //private OrderItems orderItem;
         private Collection<OrderItems> orderItems;
-        //private Collection<Product> products;
-
-        //private FormStates state;
 
         #endregion
 
@@ -56,33 +52,21 @@ namespace OrderSystem.PresentationLayer
         #endregion
 
         #region Button Clicked Events
-        private void doneButton_Click(object sender, EventArgs e)  // To finilize that an order has been picked
+        private void doneButton_Click(object sender, EventArgs e)
         {
             printpreviewButton.Visible = true;
             if (order != null)
             {   
-                //Ask user if they want to confirm order
                 if (MessageBox.Show("Are you sure you want to confirm order as picked?", "Confirming Order", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     printpreviewButton.Visible = true;
-                    // Here we change the order status to be picked and clear the picking list
                     order.OrderValue = Order.OrderStatus.picked;
                     orderController.DataMaintenance(order, DatabaseLayer.DB.DBOperation.Edit);
-
-                    //if (orderController.FinalizeChanges(order) == true)
-                    //{
-                    //    ordersComboBox.Items.Remove(ordersComboBox.SelectedItem); //remove item from combo box when picked
-                    //}
-
                     orderController.FinalizeChanges(order);
-                    //orderItemsListView.Clear();
                     ItemsListView();
-                    //orderItemsListView.Refresh();
                     ordersComboBox.SelectedIndex = -1;
                     ordersComboBox.Text = "";
                     order = null;
-                    //HideAll(false);
-
                 }
                 else
                 {
@@ -104,14 +88,13 @@ namespace OrderSystem.PresentationLayer
             }
         }
 
-        private void okButton_Click(object sender, EventArgs e)   // Selecting an item from the combo box
+        private void okButton_Click(object sender, EventArgs e)
         {
             order = default(Order);
             employee = default(Employee);
             order = (Order)ordersComboBox.SelectedItem;
             backButton.Visible = true;
             doneButton.Visible = true;
-            //Cannot create a list id no order is selected
             if (order == null)
             {
                 MessageBox.Show("First select an order to generate a picking list");
@@ -145,7 +128,7 @@ namespace OrderSystem.PresentationLayer
             {
                 PoppelprintDocument.Print();
             }
-        }// send the document to the uct server for printing
+        }
         #endregion
 
         #region Methods
@@ -164,16 +147,12 @@ namespace OrderSystem.PresentationLayer
              Collection<Order> orders = new Collection<Order>();
              orderController = new OrderController();
              orders = orderController.FindByStatus(Order.OrderStatus.unpicked); 
-             //Link the objects in the collection of unpicked orders to every item of the combo box
              foreach (Order eachOrder in orders)
              {
                  ordersComboBox.Items.Add(eachOrder);
              }
-
-             // Allow to search on combo box
             ordersComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             ordersComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
-            //Set the current display of the combobox to nothing
             ordersComboBox.SelectedIndex = -1;
             ordersComboBox.Text = "";
         }
@@ -181,19 +160,16 @@ namespace OrderSystem.PresentationLayer
         public void ItemsListView()
         {
             ListViewItem itemDetails;
-           // order = new Order();
-            order = (Order)ordersComboBox.SelectedItem;   // reading from the combo box
+            order = (Order)ordersComboBox.SelectedItem;
             orderItemsListView.Clear();
 
-            if (order == null)  // If nothing has been selected yet on the combo box
+            if (order == null)
             {
-                //Set Up Columns of List View
                 orderItemsListView.View = View.Details;
                 orderItemsListView.Columns.Insert(0, "Product ID", 133, HorizontalAlignment.Left);
                 orderItemsListView.Columns.Insert(1, "Product Name", 140, HorizontalAlignment.Left);
                 orderItemsListView.Columns.Insert(2, "Quantity", 133, HorizontalAlignment.Left);
             }
-
             else
             {
                 orderItemsListView.View = View.Details;
@@ -201,13 +177,11 @@ namespace OrderSystem.PresentationLayer
                 orderItemsListView.Columns.Insert(1, "Product Name", 140, HorizontalAlignment.Left);
                 orderItemsListView.Columns.Insert(2, "Quantity", 133, HorizontalAlignment.Left);
 
-                orderItems = null;  //employees collection will be filled by role
+                orderItems = null;
                 orderItems = orderItemsController.FindByOrderID(order.OrderID);
-
-                //Add item details to each ListView item 
                 foreach (OrderItems item in orderItems)
                 {
-                    Product product = productController.Find(item.ProductID);  // get the selected product details
+                    Product product = productController.Find(item.ProductID);
                     itemDetails = new ListViewItem();
                     itemDetails.Text = item.ProductID.ToString();
                     itemDetails.SubItems.Add(product.ProductName);
@@ -215,7 +189,6 @@ namespace OrderSystem.PresentationLayer
                     orderItemsListView.Items.Add(itemDetails);
                 }
             }
-
             orderItemsListView.Refresh();
             orderItemsListView.GridLines = true;
         }
@@ -223,7 +196,7 @@ namespace OrderSystem.PresentationLayer
         #endregion
 
        
-        #region When the form has loaded
+        #region Form states
         private void PickingListForm_Load(object sender, EventArgs e)
         {
             printpreviewButton.Visible = false;
@@ -233,35 +206,25 @@ namespace OrderSystem.PresentationLayer
         }
         #endregion
 
-        #region Print Preview (BASICALLY PRINT CUSTOMER AND ORDER DETAILS)
+        #region Print Preview
         private void PoppelprintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            e.Graphics.DrawString("******************************************" + 
+            e.Graphics.DrawString("=================================================" + 
                                   "\n" +
-                                 "            CUSTOMER DETAILS"+
+                                  "               CUSTOMER DETAILS"+
                                   "\n" +
-                                  "******************************************"+
-                                  "\n" + "\n"+
-                                  "Order Number :  " + orderIdLabel.Text +
+                                  "================================================="+
+                                  "\n" + "\n"+ "Order Number :  " + orderIdLabel.Text +
+                                  "\n" + "\n" + "Order Date   :  " + orderDateLabel.Text +
+                                  "\n" + "\n" +  "Employee ID     :  " + employeeIDlabel.Text +
+                                  "\n" + "\n" + "Customer ID   :  " + CustomerIDLabel.Text +
+                                  "\n" + "\n" +  "Customer Name:  " + CustomerNameLabel.Text +
+                                  "\n" + "\n" + "Delivary Address :  " + CustomerAddressLabel.Text +
                                   "\n" + "\n" +
-                                  "Order Date   :  " + orderDateLabel.Text +
-                                  "\n" + "\n" +
-                                  "Clerk ID     :  " + employeeIDlabel.Text +
-                                  "\n" + "\n" +
-                                  "CustomerID   :  " + CustomerIDLabel.Text +
-                                  "\n" + "\n" +
-                                  "Customer Name:  " + CustomerNameLabel.Text +
-                                  "\n" + "\n" +
-                                  "Delivary Address :  " + CustomerAddressLabel.Text +
-                                  "\n" + "\n" +
-                                "******************************************" +
+                                  "====================================================" +   "\n" + "           PRODUCT DETAILS" +
                                   "\n" +
-                                 "           PRODUCT DETAILS" +
-                                  "\n" +
-                                "******************************************"
-                                 , new Font("Courier New", 12, FontStyle.Regular), Brushes.Black, new Point(25, 150));
-
-            //int x = 60;           
+                                  "===================================================="
+                                 , new Font("Courier New", 12, FontStyle.Regular), Brushes.Black, new Point(25, 150));         
             int y = 500;            
             int offset = 40;
             

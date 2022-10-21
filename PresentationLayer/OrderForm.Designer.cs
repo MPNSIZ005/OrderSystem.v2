@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.detailsGroupBox = new System.Windows.Forms.GroupBox();
+            this.closeButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
             this.remainingCreditLabel = new System.Windows.Forms.Label();
             this.remaininhCreditHeading = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@
             this.customerNumberLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.orderIDLabel = new System.Windows.Forms.Label();
-            this.closeButton = new System.Windows.Forms.Button();
             this.detailsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qtyNumericUpDown)).BeginInit();
             this.SuspendLayout();
@@ -77,6 +77,16 @@
             this.detailsGroupBox.Size = new System.Drawing.Size(864, 427);
             this.detailsGroupBox.TabIndex = 13;
             this.detailsGroupBox.TabStop = false;
+            // 
+            // closeButton
+            // 
+            this.closeButton.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.closeButton.Location = new System.Drawing.Point(178, 361);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(94, 35);
+            this.closeButton.TabIndex = 26;
+            this.closeButton.Text = "Close";
+            this.closeButton.UseVisualStyleBackColor = false;
             // 
             // backButton
             // 
@@ -277,23 +287,13 @@
             this.orderIDLabel.TabIndex = 17;
             this.orderIDLabel.Text = "XXXXXX0001";
             // 
-            // closeButton
-            // 
-            this.closeButton.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.closeButton.Location = new System.Drawing.Point(178, 361);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(94, 35);
-            this.closeButton.TabIndex = 26;
-            this.closeButton.Text = "Close";
-            this.closeButton.UseVisualStyleBackColor = false;
-            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(973, 496);
+            this.ClientSize = new System.Drawing.Size(1139, 656);
             this.Controls.Add(this.orderIDLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.customerNumberLabel);
@@ -301,7 +301,6 @@
             this.Controls.Add(this.detailsGroupBox);
             this.Name = "OrderForm";
             this.Text = "OrderForm";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OrderForm_FormClosing);
             this.Load += new System.EventHandler(this.OrderForm_Load);
             this.detailsGroupBox.ResumeLayout(false);

@@ -62,7 +62,6 @@
             this.quantityInStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pickingListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -330,20 +329,7 @@
             this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
             this.customersToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
             this.customersToolStripMenuItem.Text = "Customers";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label1.Location = new System.Drawing.Point(197, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(492, 50);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Poppel Order System";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.customersToolStripMenuItem.Click += new System.EventHandler(this.customersToolStripMenuItem_Click);
             // 
             // PoppelMDIParent
             // 
@@ -355,7 +341,6 @@
             this.ClientSize = new System.Drawing.Size(973, 496);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
-            this.Controls.Add(this.label1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Bisque;
@@ -402,7 +387,6 @@
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem expiryReport;
         private System.Windows.Forms.ToolStripMenuItem quantityInStockToolStripMenuItem;

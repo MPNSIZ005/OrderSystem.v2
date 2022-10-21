@@ -16,7 +16,6 @@ namespace OrderSystem.PresentationLayer
     {
         #region Attributes
         private EmployeeController employeeController;
-        //private Collection<Employee> employees;
         public bool loginFormClosed = false;   
         #endregion
 
@@ -93,7 +92,8 @@ namespace OrderSystem.PresentationLayer
 
         private void clearButton_Click(object sender, System.EventArgs e)
         {
-
+            passwordTextBox.Text = "";
+            usernameTextBox.Text = "";
         }
     }
 }

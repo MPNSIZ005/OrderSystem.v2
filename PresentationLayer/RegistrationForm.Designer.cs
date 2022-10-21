@@ -53,7 +53,7 @@
             this.backButton.Location = new System.Drawing.Point(264, 458);
             this.backButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(100, 27);
+            this.backButton.Size = new System.Drawing.Size(100, 40);
             this.backButton.TabIndex = 12;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = false;
@@ -66,7 +66,7 @@
             this.cancelButton.Location = new System.Drawing.Point(405, 458);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(100, 27);
+            this.cancelButton.Size = new System.Drawing.Size(100, 40);
             this.cancelButton.TabIndex = 11;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = false;
@@ -79,7 +79,7 @@
             this.submitButton.Location = new System.Drawing.Point(545, 457);
             this.submitButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.submitButton.Name = "submitButton";
-            this.submitButton.Size = new System.Drawing.Size(100, 27);
+            this.submitButton.Size = new System.Drawing.Size(100, 41);
             this.submitButton.TabIndex = 10;
             this.submitButton.Text = "Submit";
             this.submitButton.UseVisualStyleBackColor = false;
@@ -216,7 +216,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(973, 496);
+            this.ClientSize = new System.Drawing.Size(1134, 651);
             this.Controls.Add(this.registerLabel);
             this.Controls.Add(this.newCustomerContainer);
             this.Controls.Add(this.backButton);
@@ -225,8 +225,8 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "RegistrationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Customer Registration";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegistrationForm_FormClosed);
             this.newCustomerContainer.ResumeLayout(false);
             this.newCustomerContainer.PerformLayout();

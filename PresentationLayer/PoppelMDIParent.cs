@@ -23,12 +23,12 @@ namespace OrderSystem.PresentationLayer
         private CreateOrderForm createOrderForm;
         private CatalogueForm catalogueForm;
         private LoginForm loginForm;
-        private ReportingForm reportingForm;
         private OrderItemsController orderItemsController;
         private EmployeeController employeeController;
         private CustomerController customerController;
         private ProductController productController;
         private OrderController orderController;
+        private CustomerForm customerForm;
 
 
         public PoppelMDIParent()
@@ -155,22 +155,6 @@ namespace OrderSystem.PresentationLayer
 
             createOrderForm.Show();
         }
-
-        private void salesReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (reportingForm == null)
-            {
-                CreateNewReportingForm();
-            }
-
-            if (reportingForm.reportingFormClosed)
-            {
-                CreateNewReportingForm();
-            }
-
-            reportingForm.Show();
-        }
-
         #endregion
 
         #region Method 
@@ -194,6 +178,13 @@ namespace OrderSystem.PresentationLayer
             pickingListForm.StartPosition = FormStartPosition.CenterParent;
         }
 
+        private void CreateNewCustomerForm()
+        {
+            customerForm = new CustomerForm(customerController);
+            customerForm.MdiParent = this;
+            customerForm.StartPosition = FormStartPosition.CenterScreen;
+        }
+
         private void CreateNewRegistrationForm()
         {
             registrationForm = new RegistrationForm(customerController);
@@ -213,12 +204,6 @@ namespace OrderSystem.PresentationLayer
             createOrderForm = new CreateOrderForm(customerController);
             createOrderForm.MdiParent = this;        // Setting the MDI Parent
             createOrderForm.StartPosition = FormStartPosition.CenterParent;
-        }
-        private void CreateNewReportingForm()
-        {
-            reportingForm = new ReportingForm();
-            reportingForm.MdiParent = this;        // Setting the MDI Parent
-            reportingForm.StartPosition = FormStartPosition.CenterParent;
         }
         public void pickClerkLogin()
         {
@@ -283,6 +268,19 @@ namespace OrderSystem.PresentationLayer
             }
 
             pickingListForm.Show();
+        }
+
+        private void customersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(customerForm == null)
+            {
+                CreateNewCustomerForm();
+            }
+            if (customerForm.customersClosed)
+            {
+                CreateNewCustomerForm();
+            }
+            customerForm.Show();
         }
     }
 }

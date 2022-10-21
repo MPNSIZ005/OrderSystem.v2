@@ -47,7 +47,7 @@
             this.loginGroupBox.Controls.Add(this.usernameLabel);
             this.loginGroupBox.Controls.Add(this.passwordTextBox);
             this.loginGroupBox.Controls.Add(this.passwordLabel);
-            this.loginGroupBox.Location = new System.Drawing.Point(205, 187);
+            this.loginGroupBox.Location = new System.Drawing.Point(262, 189);
             this.loginGroupBox.Name = "loginGroupBox";
             this.loginGroupBox.Size = new System.Drawing.Size(546, 130);
             this.loginGroupBox.TabIndex = 9;
@@ -92,7 +92,7 @@
             // 
             this.backButton.BackColor = System.Drawing.Color.SkyBlue;
             this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backButton.Location = new System.Drawing.Point(205, 349);
+            this.backButton.Location = new System.Drawing.Point(262, 351);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(96, 33);
             this.backButton.TabIndex = 10;
@@ -103,7 +103,7 @@
             // 
             this.LoginButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.LoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginButton.Location = new System.Drawing.Point(655, 349);
+            this.LoginButton.Location = new System.Drawing.Point(712, 351);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(96, 33);
             this.LoginButton.TabIndex = 11;
@@ -115,7 +115,7 @@
             // 
             this.clearButton.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearButton.Location = new System.Drawing.Point(427, 349);
+            this.clearButton.Location = new System.Drawing.Point(484, 351);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(99, 33);
             this.clearButton.TabIndex = 12;
@@ -127,7 +127,7 @@
             // 
             this.loginPromptLabel.AutoSize = true;
             this.loginPromptLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginPromptLabel.Location = new System.Drawing.Point(202, 161);
+            this.loginPromptLabel.Location = new System.Drawing.Point(259, 163);
             this.loginPromptLabel.Name = "loginPromptLabel";
             this.loginPromptLabel.Size = new System.Drawing.Size(205, 13);
             this.loginPromptLabel.TabIndex = 13;
@@ -139,7 +139,7 @@
             this.errorLabel.BackColor = System.Drawing.Color.AliceBlue;
             this.errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorLabel.ForeColor = System.Drawing.Color.Red;
-            this.errorLabel.Location = new System.Drawing.Point(217, 126);
+            this.errorLabel.Location = new System.Drawing.Point(274, 128);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(350, 13);
             this.errorLabel.TabIndex = 14;
@@ -151,7 +151,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(973, 496);
+            this.ClientSize = new System.Drawing.Size(1139, 656);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.loginPromptLabel);
             this.Controls.Add(this.clearButton);
@@ -159,9 +159,8 @@
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.loginGroupBox);
             this.Name = "LoginForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "LoginForm";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginForm_FormClosed);
             this.loginGroupBox.ResumeLayout(false);
             this.loginGroupBox.PerformLayout();
