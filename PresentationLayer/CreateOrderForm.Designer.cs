@@ -117,16 +117,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(1139, 656);
+            this.ClientSize = new System.Drawing.Size(1384, 761);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.existingCustomerContainer);
             this.Name = "CreateOrderForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateOrderForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CreateOrderForm_FormClosed);
             this.existingCustomerContainer.ResumeLayout(false);

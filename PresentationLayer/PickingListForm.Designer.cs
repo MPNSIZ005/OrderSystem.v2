@@ -300,9 +300,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(1139, 656);
+            this.ClientSize = new System.Drawing.Size(1384, 761);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.employeeIDlabel);
             this.Controls.Add(this.printButton);
@@ -325,6 +326,7 @@
             this.Controls.Add(this.doneButton);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "PickingListForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Picking List";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PickingListForm_FormClosed);
             this.Load += new System.EventHandler(this.PickingListForm_Load);

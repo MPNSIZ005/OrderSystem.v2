@@ -262,7 +262,7 @@ namespace OrderSystem.PresentationLayer
                 CreateNewPickingListForm();
             }
 
-            if (pickingListForm.listFormClosed)
+            if (pickingListForm.pickingListFormClosed)
             {
                 CreateNewPickingListForm();
             }

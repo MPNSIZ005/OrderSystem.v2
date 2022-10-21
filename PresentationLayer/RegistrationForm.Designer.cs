@@ -215,8 +215,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(1134, 651);
+            this.ClientSize = new System.Drawing.Size(1384, 761);
             this.Controls.Add(this.registerLabel);
             this.Controls.Add(this.newCustomerContainer);
             this.Controls.Add(this.backButton);

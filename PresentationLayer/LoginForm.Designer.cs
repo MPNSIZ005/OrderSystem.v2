@@ -149,9 +149,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(1139, 656);
+            this.ClientSize = new System.Drawing.Size(1384, 761);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.loginPromptLabel);
             this.Controls.Add(this.clearButton);
@@ -159,7 +160,7 @@
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.loginGroupBox);
             this.Name = "LoginForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginForm_FormClosed);
             this.loginGroupBox.ResumeLayout(false);
