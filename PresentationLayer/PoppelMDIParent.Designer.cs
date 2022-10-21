@@ -305,20 +305,20 @@
             // expiryReport
             // 
             this.expiryReport.Name = "expiryReport";
-            this.expiryReport.Size = new System.Drawing.Size(170, 22);
+            this.expiryReport.Size = new System.Drawing.Size(180, 22);
             this.expiryReport.Text = "Expiry Report";
             this.expiryReport.Click += new System.EventHandler(this.expiryReport_Click);
             // 
             // quantityInStockToolStripMenuItem
             // 
             this.quantityInStockToolStripMenuItem.Name = "quantityInStockToolStripMenuItem";
-            this.quantityInStockToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.quantityInStockToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.quantityInStockToolStripMenuItem.Text = "Quantity in Stock";
             // 
             // pickingListToolStripMenuItem1
             // 
             this.pickingListToolStripMenuItem1.Name = "pickingListToolStripMenuItem1";
-            this.pickingListToolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
+            this.pickingListToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.pickingListToolStripMenuItem1.Text = "Picking List";
             this.pickingListToolStripMenuItem1.Click += new System.EventHandler(this.pickingListToolStripMenuItem1_Click);
             // 
@@ -327,8 +327,8 @@
             this.customersToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.customersToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
-            this.customersToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
-            this.customersToolStripMenuItem.Text = "Customers";
+            this.customersToolStripMenuItem.Size = new System.Drawing.Size(126, 20);
+            this.customersToolStripMenuItem.Text = "View All Customers";
             this.customersToolStripMenuItem.Click += new System.EventHandler(this.customersToolStripMenuItem_Click);
             // 
             // PoppelMDIParent

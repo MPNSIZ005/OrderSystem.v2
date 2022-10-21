@@ -40,7 +40,6 @@ namespace OrderSystem.PresentationLayer
             customerController = new CustomerController();
             productController = new ProductController();
             orderController = new OrderController();
-
             HideAll();
         }
 
@@ -221,11 +220,9 @@ namespace OrderSystem.PresentationLayer
         {
             loginToolStripMenuItem.Visible = false;
             logoutToolStripMenuItem.Visible = true;
-            //printToolStripMenuItem1.Visible = true;
             createOrderToolStripMenuItem.Visible = true;
             registerCustomerToolStripMenuItem.Visible = true;
             reportsToolStripMenuItem.Visible = true;
-            //salesReportToolStripMenuItem.Visible = true;
             expiryReport.Visible = true;
         }
 
@@ -233,10 +230,10 @@ namespace OrderSystem.PresentationLayer
         {
             registerCustomerToolStripMenuItem.Visible = false;
             createOrderToolStripMenuItem.Visible = false;
-            //printToolStripMenuItem1.Visible = false;
             logoutToolStripMenuItem.Visible = false;
             loginToolStripMenuItem.Visible = true;
-            //salesReportToolStripMenuItem.Visible = false;
+            reportsToolStripMenuItem.Visible = false;
+            customersToolStripMenuItem.Visible = false;
         }
 
 
