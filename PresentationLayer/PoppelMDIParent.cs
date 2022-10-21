@@ -44,33 +44,6 @@ namespace OrderSystem.PresentationLayer
             childForm.Show();
         }
 
-        private void OpenFile(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = openFileDialog.FileName;
-            }
-        }
-
-        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            saveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = saveFileDialog.FileName;
-            }
-        }
-
-        private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void CloseAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (Form childForm in MdiChildren)
@@ -229,7 +202,7 @@ namespace OrderSystem.PresentationLayer
             }
             expiredProductsForm.Show();
         }
-
+/*
         private void pickingListToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (pickingListForm == null)
@@ -244,7 +217,7 @@ namespace OrderSystem.PresentationLayer
 
             pickingListForm.Show();
         }
-
+*/
         private void customersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(customerForm == null)
@@ -271,6 +244,11 @@ namespace OrderSystem.PresentationLayer
                 }
 
                 catalogueForm.Show();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

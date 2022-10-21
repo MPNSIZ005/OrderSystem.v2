@@ -31,12 +31,13 @@ namespace OrderSystem.PresentationLayer
         {
             this.itemslistViewCustomers = new System.Windows.Forms.ListView();
             this.closeButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // itemslistViewCustomers
             // 
             this.itemslistViewCustomers.HideSelection = false;
-            this.itemslistViewCustomers.Location = new System.Drawing.Point(136, 57);
+            this.itemslistViewCustomers.Location = new System.Drawing.Point(191, 57);
             this.itemslistViewCustomers.Name = "itemslistViewCustomers";
             this.itemslistViewCustomers.Size = new System.Drawing.Size(695, 673);
             this.itemslistViewCustomers.TabIndex = 0;
@@ -54,6 +55,16 @@ namespace OrderSystem.PresentationLayer
             this.closeButton.UseVisualStyleBackColor = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(892, 409);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(223, 33);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Poppel System";
+            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -62,12 +73,14 @@ namespace OrderSystem.PresentationLayer
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(1384, 761);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.itemslistViewCustomers);
             this.Name = "CustomerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CustomerForm";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -75,5 +88,6 @@ namespace OrderSystem.PresentationLayer
 
         private System.Windows.Forms.ListView itemslistViewCustomers;
         private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Label label1;
     }
 }

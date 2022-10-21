@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.submitButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.existingCustomerContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,9 +86,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(361, 137);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 13);
+            this.label2.Size = new System.Drawing.Size(143, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Create new customer order";
+            this.label2.Text = "Create a customer order";
             // 
             // submitButton
             // 
@@ -114,6 +115,16 @@
             this.CloseButton.UseVisualStyleBackColor = false;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Showcard Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(309, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(455, 33);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Welcome to the Poppel System";
+            // 
             // CreateOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -122,6 +133,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(1384, 761);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.label2);
@@ -147,5 +159,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Button CloseButton;
+        private System.Windows.Forms.Label label3;
     }
 }

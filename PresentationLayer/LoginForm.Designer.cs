@@ -38,6 +38,7 @@
             this.clearButton = new System.Windows.Forms.Button();
             this.loginPromptLabel = new System.Windows.Forms.Label();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.loginGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -140,11 +141,21 @@
             this.errorLabel.BackColor = System.Drawing.Color.AliceBlue;
             this.errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorLabel.ForeColor = System.Drawing.Color.Red;
-            this.errorLabel.Location = new System.Drawing.Point(274, 128);
+            this.errorLabel.Location = new System.Drawing.Point(366, 115);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(350, 13);
             this.errorLabel.TabIndex = 14;
             this.errorLabel.Text = "Incorrect username/password combination. Please try again.";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(387, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(292, 33);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Welcome to Poppel";
             // 
             // LoginForm
             // 
@@ -154,6 +165,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(1384, 761);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.loginPromptLabel);
             this.Controls.Add(this.clearButton);
@@ -183,5 +195,6 @@
         private System.Windows.Forms.Label loginPromptLabel;
         private System.Windows.Forms.Label errorLabel;
         private System.Windows.Forms.TextBox usernameTextBox;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -25,7 +25,7 @@ namespace OrderSystem.PresentationLayer
             itemslistViewCustomers.Columns.Insert(1, "Name", 125, HorizontalAlignment.Left);
             itemslistViewCustomers.Columns.Insert(2, "Surname", 125, HorizontalAlignment.Left);
             itemslistViewCustomers.Columns.Insert(3, "Phone", 125, HorizontalAlignment.Left);
-            itemslistViewCustomers.Columns.Insert(3, "Address", 125, HorizontalAlignment.Left);
+            itemslistViewCustomers.Columns.Insert(4, "Address", 125, HorizontalAlignment.Left);
             Collection<Customer> allCustomers = customerController.AllCustomers;
             foreach (Customer eachCustomer in allCustomers)
             {

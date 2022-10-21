@@ -49,17 +49,15 @@
             this.customerNumberLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.orderIDLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.detailsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qtyNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // detailsGroupBox
             // 
-            this.detailsGroupBox.Controls.Add(this.closeButton);
-            this.detailsGroupBox.Controls.Add(this.backButton);
             this.detailsGroupBox.Controls.Add(this.remainingCreditLabel);
             this.detailsGroupBox.Controls.Add(this.remaininhCreditHeading);
-            this.detailsGroupBox.Controls.Add(this.cancelButton);
             this.detailsGroupBox.Controls.Add(this.doneButton);
             this.detailsGroupBox.Controls.Add(this.ItemsOnCartLabel);
             this.detailsGroupBox.Controls.Add(this.itemsListView);
@@ -72,7 +70,7 @@
             this.detailsGroupBox.Controls.Add(this.totalLabel);
             this.detailsGroupBox.Controls.Add(this.quantityLabel);
             this.detailsGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.detailsGroupBox.Location = new System.Drawing.Point(37, 57);
+            this.detailsGroupBox.Location = new System.Drawing.Point(199, 152);
             this.detailsGroupBox.Name = "detailsGroupBox";
             this.detailsGroupBox.Size = new System.Drawing.Size(864, 427);
             this.detailsGroupBox.TabIndex = 13;
@@ -81,9 +79,9 @@
             // closeButton
             // 
             this.closeButton.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.closeButton.Location = new System.Drawing.Point(178, 361);
+            this.closeButton.Location = new System.Drawing.Point(611, 630);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(94, 35);
+            this.closeButton.Size = new System.Drawing.Size(94, 42);
             this.closeButton.TabIndex = 26;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = false;
@@ -93,9 +91,9 @@
             // 
             this.backButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backButton.Location = new System.Drawing.Point(25, 361);
+            this.backButton.Location = new System.Drawing.Point(217, 630);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(81, 36);
+            this.backButton.Size = new System.Drawing.Size(116, 42);
             this.backButton.TabIndex = 25;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = false;
@@ -125,9 +123,9 @@
             // 
             this.cancelButton.BackColor = System.Drawing.Color.Bisque;
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(339, 361);
+            this.cancelButton.Location = new System.Drawing.Point(967, 630);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(96, 35);
+            this.cancelButton.Size = new System.Drawing.Size(96, 42);
             this.cancelButton.TabIndex = 22;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = false;
@@ -137,7 +135,7 @@
             // 
             this.doneButton.BackColor = System.Drawing.Color.BurlyWood;
             this.doneButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.doneButton.Location = new System.Drawing.Point(530, 360);
+            this.doneButton.Location = new System.Drawing.Point(489, 326);
             this.doneButton.Name = "doneButton";
             this.doneButton.Size = new System.Drawing.Size(117, 36);
             this.doneButton.TabIndex = 21;
@@ -161,7 +159,7 @@
             this.itemsListView.HideSelection = false;
             this.itemsListView.Location = new System.Drawing.Point(25, 100);
             this.itemsListView.Name = "itemsListView";
-            this.itemsListView.Size = new System.Drawing.Size(410, 228);
+            this.itemsListView.Size = new System.Drawing.Size(410, 297);
             this.itemsListView.TabIndex = 13;
             this.itemsListView.UseCompatibleStateImageBehavior = false;
             this.itemsListView.SelectedIndexChanged += new System.EventHandler(this.itemsListView_SelectedIndexChanged);
@@ -178,7 +176,7 @@
             // 
             this.checkOutButton.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.checkOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkOutButton.Location = new System.Drawing.Point(717, 361);
+            this.checkOutButton.Location = new System.Drawing.Point(705, 326);
             this.checkOutButton.Name = "checkOutButton";
             this.checkOutButton.Size = new System.Drawing.Size(107, 36);
             this.checkOutButton.TabIndex = 10;
@@ -252,7 +250,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(394, 27);
+            this.label1.Location = new System.Drawing.Point(556, 122);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 13);
             this.label1.TabIndex = 14;
@@ -262,7 +260,7 @@
             // 
             this.customerNumberLabel.AutoSize = true;
             this.customerNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerNumberLabel.Location = new System.Drawing.Point(538, 27);
+            this.customerNumberLabel.Location = new System.Drawing.Point(700, 122);
             this.customerNumberLabel.Name = "customerNumberLabel";
             this.customerNumberLabel.Size = new System.Drawing.Size(76, 13);
             this.customerNumberLabel.TabIndex = 15;
@@ -272,7 +270,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(59, 27);
+            this.label2.Location = new System.Drawing.Point(221, 122);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 13);
             this.label2.TabIndex = 16;
@@ -282,11 +280,21 @@
             // 
             this.orderIDLabel.AutoSize = true;
             this.orderIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderIDLabel.Location = new System.Drawing.Point(197, 27);
+            this.orderIDLabel.Location = new System.Drawing.Point(359, 122);
             this.orderIDLabel.Name = "orderIDLabel";
             this.orderIDLabel.Size = new System.Drawing.Size(83, 13);
             this.orderIDLabel.TabIndex = 17;
             this.orderIDLabel.Text = "XXXXXX0001";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Showcard Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(515, 39);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(223, 33);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "Poppel System";
             // 
             // OrderForm
             // 
@@ -296,7 +304,11 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(1384, 761);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.closeButton);
             this.Controls.Add(this.orderIDLabel);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.customerNumberLabel);
             this.Controls.Add(this.label1);
@@ -339,5 +351,6 @@
         private System.Windows.Forms.Label remaininhCreditHeading;
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Label label3;
     }
 }
