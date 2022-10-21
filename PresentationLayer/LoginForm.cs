@@ -1,13 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Forms;
-
 using OrderSystem.BusinessLayer;
 
 namespace OrderSystem.PresentationLayer
@@ -43,7 +35,7 @@ namespace OrderSystem.PresentationLayer
             Employee emp = null;
             bool employeeFound = false;
 
-            foreach (Employee eachEmployee in allEmployees)  // searching through all employees to check for the entered user
+            foreach (Employee eachEmployee in allEmployees)
             {
                 if(eachEmployee.EmployeeID.Equals(usernameTextBox.Text.ToUpper()))
                 {
@@ -54,38 +46,35 @@ namespace OrderSystem.PresentationLayer
             }
 
 
-            if (employeeFound==true)   // user does exist
+            if (employeeFound==true)   // user exist
             {
                 if (emp.Password.Equals(passwordTextBox.Text))
                 {
-                    if (emp.RoleValue == Employee.Role.pickingClerk)   // if the user is a picking clerk
+                    if (emp.RoleValue == Employee.Role.pickingClerk)
                     {
                         ((PoppelMDIParent)this.MdiParent).pickClerkLogin();
                     }
                     else
                     {
-                        ((PoppelMDIParent)this.MdiParent).TellerSellerLogin();  // if user is a packing clerk
+                        ((PoppelMDIParent)this.MdiParent).TellerSellerLogin();
                     }
-
                     this.Close();
                 }
 
-                else
+                else// but the password is incorrect
                 {
                     passwordTextBox.Text = "";
-                    errorLabel.Text = "The password that you've entered is incorrect.";
+                    errorLabel.Text = "Incorrect Password Entered.";
                     errorLabel.Visible = true;
                 }
             }
 
-            else //if user doesn't exist
+            else //user does not exist
             {
                 passwordTextBox.Text = "";
-                errorLabel.Text = "The username or password you entered is incorrect.Please try again.";
+                errorLabel.Text = "Incorrect username/password combination.Please try again.";
                errorLabel.Visible = true;
             }
-
-           
         }
 
         #endregion

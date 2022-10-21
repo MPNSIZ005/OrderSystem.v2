@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using OrderSystem.BusinessLayer;
 
@@ -14,7 +7,6 @@ namespace OrderSystem
     public partial class RegistrationForm : Form
     {
         #region Attributes
-        //private string error;
         public bool registrationFormClosed = false;
         public bool registrationFormFormClosed = false;
         private Customer customer;
@@ -54,7 +46,6 @@ namespace OrderSystem
             else
             {
                 MessageBox.Show("Customer was NOT successfully registered");
-                
             }
         }
 
@@ -74,39 +65,18 @@ namespace OrderSystem
             dileveryAddressTextBox.Text = "";
         }
 
-        public string CustomerIDGenetor(string name, string surname, string idNumber)   // this method generates a customer ID
+        public string CustomerIDGenerator(string name, string surname, string idNumber)
         {
-            string customerID = name.ToUpper().Substring(0,1);
-
-            if(surname.Length < 3)
-            {
-                customerID += surname.ToUpper();
-                while (customerID.Length < 3)
-                {
-                    customerID += "X";
-                }
-
-                customerID += name.Substring(0, 3).ToUpper();  
-            }
-
-            else 
-            {
-                customerID += surname.Substring(0, 3).ToUpper();
-
-            }
-
-            customerID += idNumber.Substring(0,6);
+            string customerID = name.ToUpper().Substring(0,3);
+            customerID = customerID + surname.ToUpper().Substring(0, 3);
+            customerID = customerID + idNumber.Substring(0, 6);
             return customerID;
         }
 
-        private Boolean PopulateObject()
+        private Boolean PopulateObject()//Get data customer data from the registration form
         {
-            //declare phoneNum variable
             int phoneNum; 
-
-            //determine if phoneNum is int or string
             bool validPhoneNum = int.TryParse(phoneTextBox.Text, out phoneNum);
-
             long num;
             if (surnameTextBox.Text.Equals("") || nameTextBox.Text.Equals("") || phoneTextBox.Text.Equals("") || IDNumberTextBox.Text.Equals("") || dileveryAddressTextBox.Text.Equals(""))
             {
@@ -137,7 +107,7 @@ namespace OrderSystem
                 else
                 {
                     customer = new Customer();
-                    customer.CustomerID = CustomerIDGenetor(nameTextBox.Text, surnameTextBox.Text, IDNumberTextBox.Text) ;                                     ///autoGerate
+                    customer.CustomerID = CustomerIDGenerator(nameTextBox.Text, surnameTextBox.Text, IDNumberTextBox.Text) ;                                     ///autoGerate
                     customer.Name = nameTextBox.Text;
                     customer.Surname = surnameTextBox.Text;
                     customer.Phone = phoneTextBox.Text;
@@ -145,16 +115,10 @@ namespace OrderSystem
                     customer.CurrentCredit = int.Parse("2000");
                     customer.CreditStatus = "1";
                     customer.CustomerAddress = dileveryAddressTextBox.Text;
-
                     return true;
-
-
                 }
             }    
         }
-
         #endregion
-
-
     }
 }

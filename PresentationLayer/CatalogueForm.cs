@@ -1,12 +1,5 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using OrderSystem.BusinessLayer;
 
@@ -33,9 +26,9 @@ namespace OrderSystem.PresentationLayer
             itemsListView.Columns.Insert(1, "Product Name", 125, HorizontalAlignment.Left);
             itemsListView.Columns.Insert(2, "Price", 125, HorizontalAlignment.Left);
             itemsListView.Columns.Insert(3, "Quantity In Stock", 125, HorizontalAlignment.Left);
-            Collection<Product> allProducts = productController.AllProducts; //.FindByStatus(Product.productStatus.notExpired);  // putting all products in a collection
+            Collection<Product> allProducts = productController.AllProducts;
 
-            foreach (Product eachProduct in allProducts)      // iterating through items and adding them
+            foreach (Product eachProduct in allProducts)
             {
                 itemDetails = new ListViewItem();
                 itemDetails.Text = eachProduct.ProductID;
@@ -49,12 +42,10 @@ namespace OrderSystem.PresentationLayer
             itemsListView.GridLines = true;
         }
         
-
         private void closeButton_Click(object sender, EventArgs e)
         {
             catalogueClosed = true;
             this.Close();
-
         }
 
     }

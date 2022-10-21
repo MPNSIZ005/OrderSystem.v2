@@ -1,13 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Forms;
-
 using OrderSystem.BusinessLayer;
 
 namespace OrderSystem.PresentationLayer
@@ -47,17 +39,13 @@ namespace OrderSystem.PresentationLayer
         {
             ListViewItem itemDetails;
             itemsListView.Clear();
-            expiredProducts = null;  //employees collection will be filled by role
+            expiredProducts = null;
             expiredProducts = productController.FindByStatus(Product.productStatus.expired);
-
-            //Set Up Columns of List View
             itemsListView.View = View.Details;
             itemsListView.Columns.Insert(0, "Product ID", 85, HorizontalAlignment.Left);
             itemsListView.Columns.Insert(1, "Product Name", 108, HorizontalAlignment.Left);
             itemsListView.Columns.Insert(2, "Expiry Date", 100, HorizontalAlignment.Left);
             itemsListView.Columns.Insert(3, "Quantity", 85, HorizontalAlignment.Left);
-
-            //Add item details to each ListView item 
             foreach (Product product in expiredProducts)
             {
                 itemDetails = new ListViewItem();

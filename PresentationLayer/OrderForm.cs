@@ -1,12 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Globalization;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Forms;
 
 using OrderSystem.BusinessLayer;
@@ -15,8 +7,7 @@ namespace OrderSystem.PresentationLayer
 {
     public partial class OrderForm : Form
     {
-        #region Attributes
-        // controllers
+        #region Data Members
         private OrderItemsController orderItemsController;
         private CustomerController customerController;
         private ProductController productController;
@@ -33,7 +24,7 @@ namespace OrderSystem.PresentationLayer
         private int customerCurrentCredit;
         private bool orderInProgress = false;
         public bool orderFormClosed = false;
-        private bool closeDByBack = false;
+        private bool close = false;
 
         #endregion
 
@@ -55,34 +46,34 @@ namespace OrderSystem.PresentationLayer
         #endregion
 
         #region Form events
-        private void OrderForm_FormClosing(object sender, FormClosingEventArgs e)      // If a user exits from creating order then delete order
+        private void OrderForm_FormClosing(object sender, FormClosingEventArgs e)
         {   
             
 
             if (MessageBox.Show("Are you sure you want cancel the order?", "Canceling Order", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if (closeDByBack == true)
+                if (close == true)
                 {
                     CreateOrderForm createOrderForm = new CreateOrderForm(customerController);
                     createOrderForm.Show();
                 }
 
                 if (orderInProgress == true) { 
-                    Collection<OrderItems> deletingItems = orderItemsController.FindByOrderID(order.OrderID);   // putting all products to be deleted in a collection
+                    Collection<OrderItems> deletingItems = orderItemsController.FindByOrderID(order.OrderID);
 
-                    foreach (OrderItems eachItem in deletingItems)                                 // iterating through items and adding them
+                    foreach (OrderItems eachItem in deletingItems)                               
                     {
-                        Product eachProduct = productController.Find(eachItem.ProductID);        // getting the product object
+                        Product eachProduct = productController.Find(eachItem.ProductID);        
                         eachProduct.QuantityInStock += eachItem.Quantity;
 
-                        orderItemsController.DataMaintenance(eachItem, DatabaseLayer.DB.DBOperation.Delete);  // deleting each item on the order
+                        orderItemsController.DataMaintenance(eachItem, DatabaseLayer.DB.DBOperation.Delete); 
                         orderItemsController.FinalizeChanges(changingItem);
 
-                        productController.DataMaintenance(eachProduct, DatabaseLayer.DB.DBOperation.Edit);  // reversing item in stock
+                        productController.DataMaintenance(eachProduct, DatabaseLayer.DB.DBOperation.Edit); 
                         productController.FinalizeChanges(product);
                     }
 
-                    orderController.DataMaintenance(order, DatabaseLayer.DB.DBOperation.Delete);  // Now deleting the order
+                    orderController.DataMaintenance(order, DatabaseLayer.DB.DBOperation.Delete);
                     orderItemsController.FinalizeChanges(changingItem);
                 }
             }
@@ -99,16 +90,16 @@ namespace OrderSystem.PresentationLayer
         #region Button Clicked Events
         private void checkOutButton_Click(object sender, System.EventArgs e)
         {
-            if (orderInProgress == false)   // if not items on cart
+            if (orderInProgress == false)  
             {
-                MessageBox.Show("Cannot check out an empty order");
+                MessageBox.Show("Please Select an order");
             }
 
             else
             {
                 if (MessageBox.Show("Are you sure you want to check out order?", "Checking out Order", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    if (customer.CurrentCredit <= 0)   // update customer status after an order
+                    if (customer.CurrentCredit <= 0)
                     {
                         customer.CreditStatus = "0";
                     }
@@ -125,11 +116,11 @@ namespace OrderSystem.PresentationLayer
                         }
                     }
 
-                    customerController.DataMaintenance(customer, DatabaseLayer.DB.DBOperation.Edit);  // To change quantity in stock
-                    customerController.FinalizeChanges(customer);  // confirm
+                    customerController.DataMaintenance(customer, DatabaseLayer.DB.DBOperation.Edit);
+                    customerController.FinalizeChanges(customer);
 
-                    orderController.DataMaintenance(order, DatabaseLayer.DB.DBOperation.Edit);  // update status and remaining credit
-                    orderController.FinalizeChanges(order);  // confirm
+                    orderController.DataMaintenance(order, DatabaseLayer.DB.DBOperation.Edit);
+                    orderController.FinalizeChanges(order);
                     this.Dispose();
                 }
 
@@ -143,35 +134,30 @@ namespace OrderSystem.PresentationLayer
 
         private void itemsListView_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-            changingItem = orderItemsController.Find(itemsListView.SelectedItems[0].Text);   // getting the item seleced
-            ButtonsEnabled(false);   // Disabling buttons
+            changingItem = orderItemsController.Find(itemsListView.SelectedItems[0].Text);
+            ButtonsEnabled(false); 
             ShowButtons(true);
         }
 
         private void deleteButton_Click(object sender, System.EventArgs e)
         {
-            Product changingProduct = productController.Find(changingItem.ProductID);                   // getting the product for item selected
+            Product changingProduct = productController.Find(changingItem.ProductID);
 
-            changingProduct.QuantityInStock += changingItem.Quantity;  // updating quantity in stock
-            customer.CurrentCredit += (int)(changingItem.Quantity* changingProduct.Price);   // updating order total 
+            changingProduct.QuantityInStock += changingItem.Quantity; 
+            customer.CurrentCredit += (int)(changingItem.Quantity* changingProduct.Price);
             order.TotalCost -= (int)(changingItem.Quantity * changingProduct.Price);
 
 
-            currentTotalLabel.Text = "R " + (double)order.TotalCost;                // Changing the total label
+            currentTotalLabel.Text = "R " + (double)order.TotalCost;
             remainingCreditLabel.Text = "R " + customer.CurrentCredit;
             qtyNumericUpDown.Value = 0;
 
-            changingItem.OrderID = "Poppel";  // moving this item to a dummy order instead of deleting it from table, just remove from this order
-            // update on databases
-            orderItemsController.DataMaintenance(changingItem, DatabaseLayer.DB.DBOperation.Edit);  // adding to the database
+            changingItem.OrderID = "Poppel";
+            orderItemsController.DataMaintenance(changingItem, DatabaseLayer.DB.DBOperation.Edit);
             orderItemsController.FinalizeChanges(changingItem);
 
-            productController.DataMaintenance(changingProduct, DatabaseLayer.DB.DBOperation.Edit);  // To change quantity in stock
+            productController.DataMaintenance(changingProduct, DatabaseLayer.DB.DBOperation.Edit);
             productController.FinalizeChanges(product);
-
-            //orderController.DataMaintenance(order, DatabaseLayer.DB.DBOperation.Edit);
-            //orderController.FinalizeChanges(order);
-
             ItemsListView();
             productsComboBox.SelectedIndex = -1;
             productsComboBox.Text = "";
@@ -183,8 +169,6 @@ namespace OrderSystem.PresentationLayer
         private void editButton_Click(object sender, System.EventArgs e)
         {   
             ShowButtons(false);
-            //specialNoteLabel.Visible = false;
-            //specialNoteTextBox.Visible = false;
             doneButton.Visible = true;
             cancelButton.Visible = true;
         }
@@ -197,37 +181,32 @@ namespace OrderSystem.PresentationLayer
 
         private void doneButton_Click(object sender, System.EventArgs e)
         {
-             // recording the quantity before editting it 
-            Product changingProduct = productController.Find(changingItem.ProductID);                   // getting the product for item selected
+            Product changingProduct = productController.Find(changingItem.ProductID);
 
             int qtyBeforeEdit = changingItem.Quantity;
             int diffirence = (int)(qtyNumericUpDown.Value - qtyBeforeEdit);
 
-            if ((diffirence * changingProduct.Price) > customer.CurrentCredit)    // if the changes result in total being > than current total
+            if ((diffirence * changingProduct.Price) > customer.CurrentCredit)
             {
                 MessageBox.Show("Cannot make these changes as the total now exceeds the current credit");
             }
             else
             {
-
-
-                changingItem.Quantity += diffirence;                               // updating quantity
+                changingItem.Quantity += diffirence;                         
                 changingProduct.QuantityInStock += diffirence;
 
 
-                customer.CurrentCredit -= (int)(diffirence * changingProduct.Price);   // updating order total 
+                customer.CurrentCredit -= (int)(diffirence * changingProduct.Price);  
                 order.TotalCost += (int)(diffirence * changingProduct.Price);
 
 
-                currentTotalLabel.Text = "R " + (double)order.TotalCost;                // Changing the total label
+                currentTotalLabel.Text = "R " + (double)order.TotalCost;              
                 remainingCreditLabel.Text = "R " + customer.CurrentCredit;
                 qtyNumericUpDown.Value = 0;
-
-                // update on databases
-                orderItemsController.DataMaintenance(changingItem, DatabaseLayer.DB.DBOperation.Edit);  // adding to the database
+                orderItemsController.DataMaintenance(changingItem, DatabaseLayer.DB.DBOperation.Edit);  
                 orderItemsController.FinalizeChanges(changingItem);
 
-                productController.DataMaintenance(changingProduct, DatabaseLayer.DB.DBOperation.Edit);  // To change quantity in stock
+                productController.DataMaintenance(changingProduct, DatabaseLayer.DB.DBOperation.Edit); 
                 productController.FinalizeChanges(product);
             }
 
@@ -241,22 +220,22 @@ namespace OrderSystem.PresentationLayer
 
         private void addToCartButton_Click(object sender, System.EventArgs e)
         {
-            if (productsComboBox.SelectedIndex == -1)  // if nothing is selected on the combo box
+            if (productsComboBox.SelectedIndex == -1)
             {
                 MessageBox.Show("Nothing was selected to add to cart, please select a product from the products box");
             }
             else
             {
-                if (qtyNumericUpDown.Value == 0)  // if number of items is less than 1
+                if (qtyNumericUpDown.Value == 0)
                 {
                     MessageBox.Show("0 products were selected, please select product quantity greater than 0");
                 }
 
                 else
                 {
-                    if (CheckAvailability() == true)  // if item is available
+                    if (CheckAvailability() == true)
                     {
-                        if ((customer.CurrentCredit - ((int)product.Price * qtyNumericUpDown.Value)) < -10) // if customer exceeds credit by R10
+                        if ((customer.CurrentCredit - ((int)product.Price * qtyNumericUpDown.Value)) < -10)
                         {
                             MessageBox.Show("Order total now exceeds current credit, remove some items to continue");
                         }
@@ -265,7 +244,6 @@ namespace OrderSystem.PresentationLayer
                         {           
                             CreateOrderItem();
                             ItemsListView();
-                            //Reset combo and numeric boxes
                             productsComboBox.SelectedIndex = -1;
                             productsComboBox.Text = "";
                             qtyNumericUpDown.Value = 0;
@@ -282,22 +260,16 @@ namespace OrderSystem.PresentationLayer
         #region  Set Up Methods
         public void ShowButtons(bool value)
         {
-            //deleteButton.Visible = value;
-            //editButton.Visible = value;
             cancelButton.Visible = false;
             doneButton.Visible = false;
 
             if (value == true)
             {
-                //specialNoteLabel.Visible = false;
-                //specialNoteTextBox.Visible = false;
                 backButton.Visible = false;
             }
 
             else
             {
-               // specialNoteLabel.Visible = true;
-                //specialNoteTextBox.Visible = true;
                 backButton.Visible = true;
             }
         }
@@ -311,7 +283,7 @@ namespace OrderSystem.PresentationLayer
         }
 
 
-        public void SetUp()   // set up customer details when system is ran
+        public void SetUp()
         {
             orderIDLabel.Text = generateOrderID();
             customerNumberLabel.Text = customer.CustomerID + "       " + customer.Name.Substring(0, 1) + "." + customer.Surname;
@@ -323,21 +295,17 @@ namespace OrderSystem.PresentationLayer
         public void FillCombo()
         {
             products = new Collection<Product>();
-            products = productController.AllProducts;//FindByStatus(Product.productStatus.notExpired);
-            //Link the objects in the collection of unpicked orders to every item of the combo box
+            products = productController.AllProducts;
             foreach (Product eachProduct in products)
             {
-                if (eachProduct.QuantityInStock != 0)  // Do not add items out of stock on the list
+                if (eachProduct.QuantityInStock != 0)
                 {
                     productsComboBox.Items.Add(eachProduct);
                 }
 
             }
-
-            // Allow to be searched in a drop box
             productsComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             productsComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
-            //Set the current display of the combobox to nothing
             productsComboBox.SelectedIndex = -1;
             productsComboBox.Text = "";
         }
@@ -349,15 +317,13 @@ namespace OrderSystem.PresentationLayer
             Product productSetUp = (Product)(productsComboBox.SelectedItem);
             itemsListView.Clear();
 
-            if (orderInProgress == false)   // If no item has been selected yet, just make the set up
+            if (orderInProgress == false)
             {
-                //Set Up Columns of List View
                 itemsListView.View = View.Details;
-                
-                itemsListView.Columns.Insert(0, "Order Item ID", 100, HorizontalAlignment.Left);
-                itemsListView.Columns.Insert(1, "Product ID", 100, HorizontalAlignment.Left);
-                itemsListView.Columns.Insert(2, "Product Name", 100, HorizontalAlignment.Left);
-                itemsListView.Columns.Insert(3, "Quantity", 100, HorizontalAlignment.Left);
+                itemsListView.Columns.Insert(0, "Order Item ID", 90, HorizontalAlignment.Center);
+                itemsListView.Columns.Insert(1, "Product ID", 90, HorizontalAlignment.Center);
+                itemsListView.Columns.Insert(2, "Product Name", 90, HorizontalAlignment.Center);
+                itemsListView.Columns.Insert(3, "Quantity", 90, HorizontalAlignment.Center);
                
             }
 
@@ -365,16 +331,16 @@ namespace OrderSystem.PresentationLayer
             {
 
                 itemsListView.View = View.Details;
-                itemsListView.Columns.Insert(0, "Order Item ID", 100, HorizontalAlignment.Left);
-                itemsListView.Columns.Insert(1, "Product ID", 100, HorizontalAlignment.Left);
-                itemsListView.Columns.Insert(2, "Product Name", 100, HorizontalAlignment.Left);
-                itemsListView.Columns.Insert(3, "Quantity", 100, HorizontalAlignment.Left);
+                itemsListView.Columns.Insert(0, "Order Item ID", 90, HorizontalAlignment.Center);
+                itemsListView.Columns.Insert(1, "Product ID", 90, HorizontalAlignment.Center);
+                itemsListView.Columns.Insert(2, "Product Name", 90, HorizontalAlignment.Center);
+                itemsListView.Columns.Insert(3, "Quantity", 90, HorizontalAlignment.Center);
                 
-                Collection<OrderItems> allItems = orderItemsController.FindByOrderID(order.OrderID);   // putting all products in a collection
+                Collection<OrderItems> allItems = orderItemsController.FindByOrderID(order.OrderID); 
 
-                foreach (OrderItems eachItem in allItems)      // iterating through items and adding them
+                foreach (OrderItems eachItem in allItems)     
                 {
-                    Product eachProduct = productController.Find(eachItem.ProductID);        // getting the product object
+                    Product eachProduct = productController.Find(eachItem.ProductID);   
                     itemDetails = new ListViewItem();
                     itemDetails.Text = eachItem.OrderItemID;
                     itemDetails.SubItems.Add(eachItem.ProductID);
@@ -391,10 +357,9 @@ namespace OrderSystem.PresentationLayer
         #endregion
 
         #region Order Creation Methods
-        public bool CheckAvailability() // check if the item is available
+        public bool CheckAvailability()
         {
             product = (Product)productsComboBox.SelectedItem;
-
             if (product.QuantityInStock == 0)
             {
                 MessageBox.Show("Sorry, the product " + product.ProductName + "is out of stock");
@@ -406,20 +371,19 @@ namespace OrderSystem.PresentationLayer
                 MessageBox.Show("We only have " + product.QuantityInStock + " " + product.ProductName + " in stock, please select items less/Equal" + product.QuantityInStock);
                 return false;
             }
-
             else
             {
                 return true;
             }
         }
 
-        public string generateOrderID()   // To generate a unique order ID
+        public string generateOrderID()
         {
             int noOfOrders = orderController.AllOrders.Count + 1000;
             return "ORDER " + noOfOrders;
         }
 
-        public string generateOrderItemID()  // To generate a unique order item ID
+        public string generateOrderItemID()
         {
             int noOfOItems = orderItemsController.AllOrderItems.Count + 1000;
             return "ITEM " + noOfOItems;
@@ -429,7 +393,7 @@ namespace OrderSystem.PresentationLayer
         {
             OrderItems item = new OrderItems();
 
-            if (orderInProgress == false)   // If an order hasn't been created yet
+            if (orderInProgress == false)
             {
                 order = new Order();
                 order.OrderID = generateOrderID();
@@ -437,40 +401,35 @@ namespace OrderSystem.PresentationLayer
                 order.OrderDate = System.DateTime.Now;
                 order.OrderValue = 0;
 
-                orderController.DataMaintenance(order, DatabaseLayer.DB.DBOperation.Add);  // To change quantity in stock
+                orderController.DataMaintenance(order, DatabaseLayer.DB.DBOperation.Add);
                 orderController.FinalizeChanges(order);
 
                 orderInProgress = true;
 
             }
-
-            // Creating an order item object and adding to cart
             item.OrderItemID = generateOrderItemID();
             item.OrderID = order.OrderID;
             item.ProductID = product.ProductID;
             item.Quantity = (int)qtyNumericUpDown.Value;
 
-            product.QuantityInStock = (int)product.QuantityInStock - item.Quantity; // Updating quantity in stock
-            order.TotalCost += (int)(product.Price * item.Quantity);                // incrementing total
-            customer.CurrentCredit -= (int)(product.Price * item.Quantity);         // decreasing customer credit
+            product.QuantityInStock = (int)product.QuantityInStock - item.Quantity; 
+            order.TotalCost += (int)(product.Price * item.Quantity);                
+            customer.CurrentCredit -= (int)(product.Price * item.Quantity);         
 
-            currentTotalLabel.Text = "R " + (double)order.TotalCost;                // Changing the total label
+            currentTotalLabel.Text = "R " + (double)order.TotalCost;                
             remainingCreditLabel.Text = "R " + customer.CurrentCredit;
 
-            orderItemsController.DataMaintenance(item, DatabaseLayer.DB.DBOperation.Add);  // adding to the database
+            orderItemsController.DataMaintenance(item, DatabaseLayer.DB.DBOperation.Add);  
             orderItemsController.FinalizeChanges(item);
 
-            productController.DataMaintenance(product, DatabaseLayer.DB.DBOperation.Edit);  // To change quantity in stock
+            productController.DataMaintenance(product, DatabaseLayer.DB.DBOperation.Edit); 
             productController.FinalizeChanges(product);
         }
-
-
-
         #endregion
 
         private void backButton_Click(object sender, System.EventArgs e)
         {
-            closeDByBack = true;
+            close = true;
             this.Close();
         }
 
@@ -490,13 +449,10 @@ namespace OrderSystem.PresentationLayer
             }
             return true;
         }
-
-        //ADDED BY TONNY
         private void OrderForm_Load(object sender, System.EventArgs e)
         {
             qtyNumericUpDown.Enabled = false;
             itemsListView.Enabled = false;
-           //specialNoteLabel.Enabled = false;
             addToCartButton.Enabled = false;
             checkOutButton.Enabled = false;
         }
@@ -505,7 +461,6 @@ namespace OrderSystem.PresentationLayer
         {
             qtyNumericUpDown.Enabled = true;
             itemsListView.Enabled = true;
-            //specialNoteLabel.Enabled = true;
             addToCartButton.Enabled = true;
             checkOutButton.Enabled = true;
         }

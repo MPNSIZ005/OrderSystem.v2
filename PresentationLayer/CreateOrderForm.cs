@@ -1,11 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Forms;
 using OrderSystem.BusinessLayer;
 
@@ -48,15 +41,14 @@ namespace OrderSystem.PresentationLayer
             }
             else
             {
-                
-                if (CreateNewOrderForm() == true)  // IF credit status is good
+                if (CreateNewOrderForm() == true)
                 {
                     orderForm.Show();
                     this.Close();
                     createOrderFormClosed = true;
                 }
 
-                else // else
+                else
                 {
                     MessageBox.Show("Cannot create an order for customer with bad credit status");
                 }
@@ -69,7 +61,6 @@ namespace OrderSystem.PresentationLayer
             customersComboBox.SelectedIndex = -1;
             customersComboBox.Text = "";
         }
-
         #endregion
 
         #region Methods
@@ -77,16 +68,12 @@ namespace OrderSystem.PresentationLayer
         {
             customers = new Collection<Customer>();
             customers = customerController.AllCustomers;
-            //Link the objects in the collection of unpicked orders to every item of the combo box
             foreach (Customer eachOrder in customers)
             {
                 customersComboBox.Items.Add(eachOrder);
             }
-
-            // Allow to be searched in a drop box
             customersComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             customersComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
-            //Set the current display of the combobox to nothing
             customersComboBox.SelectedIndex = -1;
             customersComboBox.Text = "";
         }
@@ -98,7 +85,6 @@ namespace OrderSystem.PresentationLayer
             {   
                 return false;
             }
-
             else
             {
                 orderForm = new OrderForm(customerController,aCustomer);
@@ -106,7 +92,6 @@ namespace OrderSystem.PresentationLayer
                 return true;
             }    
         }
-
         #endregion
 
         private void CloseButton_Click(object sender, System.EventArgs e)

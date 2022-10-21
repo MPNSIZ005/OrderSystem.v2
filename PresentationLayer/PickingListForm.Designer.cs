@@ -51,7 +51,7 @@
             this.PoppelprintPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.PoppelprintDocument = new System.Drawing.Printing.PrintDocument();
             this.PoppelprintDialog = new System.Windows.Forms.PrintDialog();
-            this.orgprintButton = new System.Windows.Forms.Button();
+            this.printButton = new System.Windows.Forms.Button();
             this.employeeIDlabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -187,9 +187,8 @@
             this.CustomerAddressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerAddressLabel.Location = new System.Drawing.Point(507, 187);
             this.CustomerAddressLabel.Name = "CustomerAddressLabel";
-            this.CustomerAddressLabel.Size = new System.Drawing.Size(41, 13);
+            this.CustomerAddressLabel.Size = new System.Drawing.Size(0, 13);
             this.CustomerAddressLabel.TabIndex = 11;
-            this.CustomerAddressLabel.Text = "label6";
             // 
             // CustomerNameLabel
             // 
@@ -197,9 +196,8 @@
             this.CustomerNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerNameLabel.Location = new System.Drawing.Point(507, 168);
             this.CustomerNameLabel.Name = "CustomerNameLabel";
-            this.CustomerNameLabel.Size = new System.Drawing.Size(41, 13);
+            this.CustomerNameLabel.Size = new System.Drawing.Size(0, 13);
             this.CustomerNameLabel.TabIndex = 12;
-            this.CustomerNameLabel.Text = "label7";
             // 
             // CustomerIDLabel
             // 
@@ -207,9 +205,8 @@
             this.CustomerIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerIDLabel.Location = new System.Drawing.Point(508, 146);
             this.CustomerIDLabel.Name = "CustomerIDLabel";
-            this.CustomerIDLabel.Size = new System.Drawing.Size(41, 13);
+            this.CustomerIDLabel.Size = new System.Drawing.Size(0, 13);
             this.CustomerIDLabel.TabIndex = 13;
-            this.CustomerIDLabel.Text = "label8";
             // 
             // orderDateLabel
             // 
@@ -217,9 +214,8 @@
             this.orderDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.orderDateLabel.Location = new System.Drawing.Point(508, 102);
             this.orderDateLabel.Name = "orderDateLabel";
-            this.orderDateLabel.Size = new System.Drawing.Size(48, 13);
+            this.orderDateLabel.Size = new System.Drawing.Size(0, 13);
             this.orderDateLabel.TabIndex = 15;
-            this.orderDateLabel.Text = "label10";
             // 
             // label6
             // 
@@ -237,9 +233,8 @@
             this.orderIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.orderIdLabel.Location = new System.Drawing.Point(508, 123);
             this.orderIdLabel.Name = "orderIdLabel";
-            this.orderIdLabel.Size = new System.Drawing.Size(41, 13);
+            this.orderIdLabel.Size = new System.Drawing.Size(0, 13);
             this.orderIdLabel.TabIndex = 17;
-            this.orderIdLabel.Text = "label7";
             // 
             // printpreviewButton
             // 
@@ -251,7 +246,6 @@
             this.printpreviewButton.TabIndex = 18;
             this.printpreviewButton.Text = "Print Preview";
             this.printpreviewButton.UseVisualStyleBackColor = false;
-            this.printpreviewButton.Click += new System.EventHandler(this.printButton_Click);
             // 
             // PoppelprintPreviewDialog
             // 
@@ -271,17 +265,17 @@
             // 
             this.PoppelprintDialog.UseEXDialog = true;
             // 
-            // orgprintButton
+            // printButton
             // 
-            this.orgprintButton.BackColor = System.Drawing.Color.LawnGreen;
-            this.orgprintButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orgprintButton.Location = new System.Drawing.Point(576, 493);
-            this.orgprintButton.Name = "orgprintButton";
-            this.orgprintButton.Size = new System.Drawing.Size(101, 36);
-            this.orgprintButton.TabIndex = 20;
-            this.orgprintButton.Text = "Print";
-            this.orgprintButton.UseVisualStyleBackColor = false;
-            this.orgprintButton.Click += new System.EventHandler(this.orgprintButton_Click);
+            this.printButton.BackColor = System.Drawing.Color.LawnGreen;
+            this.printButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printButton.Location = new System.Drawing.Point(576, 493);
+            this.printButton.Name = "printButton";
+            this.printButton.Size = new System.Drawing.Size(101, 36);
+            this.printButton.TabIndex = 20;
+            this.printButton.Text = "Print";
+            this.printButton.UseVisualStyleBackColor = false;
+            this.printButton.Click += new System.EventHandler(this.printButton_Click_1);
             // 
             // employeeIDlabel
             // 
@@ -289,9 +283,8 @@
             this.employeeIDlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.employeeIDlabel.Location = new System.Drawing.Point(507, 78);
             this.employeeIDlabel.Name = "employeeIDlabel";
-            this.employeeIDlabel.Size = new System.Drawing.Size(45, 13);
+            this.employeeIDlabel.Size = new System.Drawing.Size(0, 13);
             this.employeeIDlabel.TabIndex = 21;
-            this.employeeIDlabel.Text = "label 9";
             // 
             // label7
             // 
@@ -312,7 +305,7 @@
             this.ClientSize = new System.Drawing.Size(1139, 656);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.employeeIDlabel);
-            this.Controls.Add(this.orgprintButton);
+            this.Controls.Add(this.printButton);
             this.Controls.Add(this.printpreviewButton);
             this.Controls.Add(this.orderIdLabel);
             this.Controls.Add(this.label6);
@@ -367,7 +360,7 @@
         private System.Windows.Forms.PrintPreviewDialog PoppelprintPreviewDialog;
         private System.Drawing.Printing.PrintDocument PoppelprintDocument;
         private System.Windows.Forms.PrintDialog PoppelprintDialog;
-        private System.Windows.Forms.Button orgprintButton;
+        private System.Windows.Forms.Button printButton;
         private System.Windows.Forms.Label employeeIDlabel;
         private System.Windows.Forms.Label label7;
     }

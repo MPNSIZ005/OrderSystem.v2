@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using OrderSystem.BusinessLayer;
 
@@ -15,7 +9,7 @@ namespace OrderSystem.PresentationLayer
     public partial class PickingListForm : Form
     {
         #region Attributes
-        public bool listFormClosed = false;
+        public bool pickingListFormClosed = false;
         private OrderItemsController orderItemsController;
         private CustomerController customerController;
         private ProductController productController;
@@ -46,7 +40,7 @@ namespace OrderSystem.PresentationLayer
         #region Form events
         private void PickingListForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            listFormClosed = true;
+            pickingListFormClosed = true;
         }
 
         #endregion
@@ -73,19 +67,15 @@ namespace OrderSystem.PresentationLayer
                     this.Activate();
                 }
             }
-
             else
             {
-                MessageBox.Show("Cannot finilaze a order without generating a order list");
+                MessageBox.Show("Please select an order first");
             }
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to close form?", "Closing form", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.Close();
-            }
+            this.Close();
         }
 
         private void okButton_Click(object sender, EventArgs e)
@@ -97,7 +87,7 @@ namespace OrderSystem.PresentationLayer
             doneButton.Visible = true;
             if (order == null)
             {
-                MessageBox.Show("First select an order to generate a picking list");
+                MessageBox.Show("Please select an order first");
             }
 
             else
@@ -118,17 +108,9 @@ namespace OrderSystem.PresentationLayer
         {
             PoppelprintPreviewDialog.Document = PoppelprintDocument;
             PoppelprintPreviewDialog.ShowDialog();
-            orgprintButton.Visible = true;        
+            printButton.Visible = true;        
         }
 
-        private void orgprintButton_Click(object sender, EventArgs e)
-        {
-            PoppelprintDialog.Document = PoppelprintDocument;
-            if (PoppelprintDialog.ShowDialog() == DialogResult.OK)
-            {
-                PoppelprintDocument.Print();
-            }
-        }
         #endregion
 
         #region Methods
@@ -140,7 +122,6 @@ namespace OrderSystem.PresentationLayer
             CustomerAddressLabel.Visible = value;
             orderIdLabel.Visible = value;
             employeeIDlabel.Visible = value;
-     
         }
         public void FillCombo()
         {
@@ -166,16 +147,16 @@ namespace OrderSystem.PresentationLayer
             if (order == null)
             {
                 orderItemsListView.View = View.Details;
-                orderItemsListView.Columns.Insert(0, "Product ID", 133, HorizontalAlignment.Left);
-                orderItemsListView.Columns.Insert(1, "Product Name", 140, HorizontalAlignment.Left);
-                orderItemsListView.Columns.Insert(2, "Quantity", 133, HorizontalAlignment.Left);
+                orderItemsListView.Columns.Insert(0, "Product ID", 135, HorizontalAlignment.Left);
+                orderItemsListView.Columns.Insert(1, "Product Name", 150, HorizontalAlignment.Left);
+                orderItemsListView.Columns.Insert(2, "Quantity", 135, HorizontalAlignment.Left);
             }
             else
             {
                 orderItemsListView.View = View.Details;
-                orderItemsListView.Columns.Insert(0, "Product ID", 133, HorizontalAlignment.Left);
-                orderItemsListView.Columns.Insert(1, "Product Name", 140, HorizontalAlignment.Left);
-                orderItemsListView.Columns.Insert(2, "Quantity", 133, HorizontalAlignment.Left);
+                orderItemsListView.Columns.Insert(0, "Product ID", 135, HorizontalAlignment.Left);
+                orderItemsListView.Columns.Insert(1, "Product Name", 150, HorizontalAlignment.Left);
+                orderItemsListView.Columns.Insert(2, "Quantity", 135, HorizontalAlignment.Left);
 
                 orderItems = null;
                 orderItems = orderItemsController.FindByOrderID(order.OrderID);
@@ -200,7 +181,7 @@ namespace OrderSystem.PresentationLayer
         private void PickingListForm_Load(object sender, EventArgs e)
         {
             printpreviewButton.Visible = false;
-            orgprintButton.Visible = false;
+            printButton.Visible = false;
             doneButton.Visible = false;
             backButton.Visible = false;
         }
@@ -209,38 +190,39 @@ namespace OrderSystem.PresentationLayer
         #region Print Preview
         private void PoppelprintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            e.Graphics.DrawString("=================================================" + 
-                                  "\n" +
-                                  "               CUSTOMER DETAILS"+
-                                  "\n" +
-                                  "================================================="+
-                                  "\n" + "\n"+ "Order Number :  " + orderIdLabel.Text +
-                                  "\n" + "\n" + "Order Date   :  " + orderDateLabel.Text +
-                                  "\n" + "\n" +  "Employee ID     :  " + employeeIDlabel.Text +
-                                  "\n" + "\n" + "Customer ID   :  " + CustomerIDLabel.Text +
-                                  "\n" + "\n" +  "Customer Name:  " + CustomerNameLabel.Text +
-                                  "\n" + "\n" + "Delivary Address :  " + CustomerAddressLabel.Text +
-                                  "\n" + "\n" +
-                                  "====================================================" +   "\n" + "           PRODUCT DETAILS" +
-                                  "\n" +
-                                  "===================================================="
-                                 , new Font("Courier New", 12, FontStyle.Regular), Brushes.Black, new Point(25, 150));         
-            int y = 500;            
-            int offset = 40;
+            e.Graphics.DrawString("=================================================" +  "\n" +
+                                  "               CUSTOMER DETAILS"+  "\n" +
+                                  "================================================="+ "\n" + "\n"+ 
+                                  "Order Number :  " + orderIdLabel.Text + "\n" + "\n" +  "Order Date   :  " + orderDateLabel.Text + "\n" + "\n" + 
+                                  "Employee ID     :  " + employeeIDlabel.Text + "\n" + "\n" + "Customer ID   :  " + CustomerIDLabel.Text +  "\n" + "\n" + 
+                                  "Customer Name:  " + CustomerNameLabel.Text +  "\n" + "\n" +  "Delivary Address :  " + CustomerAddressLabel.Text + "\n" + "\n" +
+                                  "====================================================" +   "\n" +
+                                  "           PRODUCT DETAILS" +  "\n" +  
+                                  "====================================================" , new Font("Courier New", 12, FontStyle.Regular), Brushes.Black, new Point(25, 150));         
+            int width = 500;            
+            int tab = 40;
             
             foreach (ListViewItem Itm in orderItemsListView.Items)
             {
                 e.Graphics.DrawString("       POPPEL PICKING LIST", new Font("Courier New", 12, FontStyle.Bold), Brushes.Black, 25, 120 );
                 e.Graphics.DrawString("ProductID"  +"             Product Name" + "         Quantity", new Font("Courier New", 12, FontStyle.Regular), Brushes.Black, 25, 500);
-                e.Graphics.DrawString(Itm.Text, new Font("Courier New", 12, FontStyle.Regular), Brushes.Black, 25, y + offset); 
-                e.Graphics.DrawString(Itm.SubItems[1].Text, new Font("Courier New", 12, FontStyle.Regular), Brushes.Black, 250, y + offset); 
-                e.Graphics.DrawString(Itm.SubItems[2].Text, new Font("Courier New", 12, FontStyle.Regular), Brushes.Black, 500, y + offset); 
-                offset = offset + (int)FontHeight + 10;
+                e.Graphics.DrawString(Itm.Text, new Font("Courier New", 12, FontStyle.Regular), Brushes.Black, 25, width + tab); 
+                e.Graphics.DrawString(Itm.SubItems[1].Text, new Font("Courier New", 12, FontStyle.Regular), Brushes.Black, 250, width + tab); 
+                e.Graphics.DrawString(Itm.SubItems[2].Text, new Font("Courier New", 12, FontStyle.Regular), Brushes.Black, 500, width + tab); 
+                tab = tab + (int)FontHeight + 10;
                
             }
-            offset = offset + 20;
         
         }
-        #endregion        
+        #endregion
+
+        private void printButton_Click_1(object sender, EventArgs e)
+        {
+            PoppelprintDialog.Document = PoppelprintDocument;
+            if (PoppelprintDialog.ShowDialog() == DialogResult.OK)
+            {
+                PoppelprintDocument.Print();
+            }
+        }
     }
 }
