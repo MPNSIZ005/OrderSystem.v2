@@ -30,6 +30,7 @@ namespace OrderSystem.PresentationLayer
         private void ExpiredProductsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             productsFormClosed = true;
+            
         }
 
         #endregion

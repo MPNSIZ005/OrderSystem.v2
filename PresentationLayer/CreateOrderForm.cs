@@ -97,7 +97,7 @@ namespace OrderSystem.PresentationLayer
         private void CloseButton_Click(object sender, System.EventArgs e)
         {
             createOrderFormClosed = true;
-            //this.Close();
+            this.Close();
         }
     }
 }

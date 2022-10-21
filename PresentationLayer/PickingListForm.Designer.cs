@@ -246,6 +246,7 @@
             this.printpreviewButton.TabIndex = 18;
             this.printpreviewButton.Text = "Print Preview";
             this.printpreviewButton.UseVisualStyleBackColor = false;
+            this.printpreviewButton.Click += new System.EventHandler(this.printpreviewButton_Click);
             // 
             // PoppelprintPreviewDialog
             // 

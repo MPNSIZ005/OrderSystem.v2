@@ -464,5 +464,11 @@ namespace OrderSystem.PresentationLayer
             addToCartButton.Enabled = true;
             checkOutButton.Enabled = true;
         }
+
+        private void closeButton_Click(object sender, System.EventArgs e)
+        {
+            orderFormClosed = true;
+            this.Close();
+        }
     }
 }

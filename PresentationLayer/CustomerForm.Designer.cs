@@ -38,7 +38,7 @@ namespace OrderSystem.PresentationLayer
             this.itemslistViewCustomers.HideSelection = false;
             this.itemslistViewCustomers.Location = new System.Drawing.Point(136, 57);
             this.itemslistViewCustomers.Name = "itemslistViewCustomers";
-            this.itemslistViewCustomers.Size = new System.Drawing.Size(807, 476);
+            this.itemslistViewCustomers.Size = new System.Drawing.Size(695, 673);
             this.itemslistViewCustomers.TabIndex = 0;
             this.itemslistViewCustomers.UseCompatibleStateImageBehavior = false;
             // 
@@ -46,9 +46,9 @@ namespace OrderSystem.PresentationLayer
             // 
             this.closeButton.BackColor = System.Drawing.Color.ForestGreen;
             this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeButton.Location = new System.Drawing.Point(502, 559);
+            this.closeButton.Location = new System.Drawing.Point(909, 670);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(90, 60);
+            this.closeButton.Size = new System.Drawing.Size(114, 60);
             this.closeButton.TabIndex = 1;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = false;

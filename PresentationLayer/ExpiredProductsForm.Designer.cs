@@ -36,19 +36,19 @@
             // 
             // itemsListView
             // 
-            this.itemsListView.BackColor = System.Drawing.Color.Beige;
+            this.itemsListView.BackColor = System.Drawing.Color.WhiteSmoke;
             this.itemsListView.HideSelection = false;
             this.itemsListView.Location = new System.Drawing.Point(28, 51);
             this.itemsListView.Name = "itemsListView";
-            this.itemsListView.Size = new System.Drawing.Size(623, 492);
+            this.itemsListView.Size = new System.Drawing.Size(623, 568);
             this.itemsListView.TabIndex = 0;
             this.itemsListView.UseCompatibleStateImageBehavior = false;
             // 
             // closeButton
             // 
-            this.closeButton.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.closeButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeButton.Location = new System.Drawing.Point(269, 572);
+            this.closeButton.Location = new System.Drawing.Point(294, 653);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(101, 46);
             this.closeButton.TabIndex = 1;
@@ -59,10 +59,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.RosyBrown;
+            this.label1.BackColor = System.Drawing.Color.Firebrick;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(250, 9);
+            this.label1.Location = new System.Drawing.Point(253, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(171, 24);
             this.label1.TabIndex = 2;

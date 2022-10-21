@@ -84,5 +84,11 @@ namespace OrderSystem.PresentationLayer
             passwordTextBox.Text = "";
             usernameTextBox.Text = "";
         }
+
+        private void backButton_Click(object sender, System.EventArgs e)
+        {
+            loginFormClosed = true;
+            this.Close();
+        }
     }
 }

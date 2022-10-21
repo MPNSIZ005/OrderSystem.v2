@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using OrderSystem.BusinessLayer;
 
@@ -110,21 +103,6 @@ namespace OrderSystem.PresentationLayer
 
         }
 
-        private void viewCatalogueToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (catalogueForm == null)
-            {
-                CreateNewCatalogueForm();
-            }
-
-            if (catalogueForm.catalogueClosed)
-            {
-                CreateNewCatalogueForm();
-            }
-          
-            catalogueForm.Show();
-        }
-
         private void registerCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (registrationForm == null)
@@ -160,20 +138,20 @@ namespace OrderSystem.PresentationLayer
         private void CreateLoginForm()
         {
             loginForm = new LoginForm(employeeController);
-            loginForm.MdiParent = this;        // Setting the MDI Parent
+            loginForm.MdiParent = this;       
             loginForm.StartPosition = FormStartPosition.CenterParent;
         }
 
         public void CreateNewCatalogueForm()
         {
             catalogueForm = new CatalogueForm(productController);
-            catalogueForm.MdiParent = this;        // Setting the MDI Parent
+            catalogueForm.MdiParent = this;        
             catalogueForm.StartPosition = FormStartPosition.CenterParent;
         }
         private void CreateNewPickingListForm()
         {
             pickingListForm = new PickingListForm(productController,customerController,employeeController);
-            pickingListForm.MdiParent = this;        // Setting the MDI Parent
+            pickingListForm.MdiParent = this;   
             pickingListForm.StartPosition = FormStartPosition.CenterParent;
         }
 
@@ -187,33 +165,32 @@ namespace OrderSystem.PresentationLayer
         private void CreateNewRegistrationForm()
         {
             registrationForm = new RegistrationForm(customerController);
-            registrationForm.MdiParent = this;        // Setting the MDI Parent
+            registrationForm.MdiParent = this;       
             registrationForm.StartPosition = FormStartPosition.CenterParent;
         }
 
         private void CreateNewExpiredProductsForm()
         {
             expiredProductsForm = new ExpiredProductsForm(productController);
-            expiredProductsForm.MdiParent = this;        // Setting the MDI Parent
+            expiredProductsForm.MdiParent = this;       
             expiredProductsForm.StartPosition = FormStartPosition.CenterParent;
         }
 
         private void CreateNewOrderForm()
         {
             createOrderForm = new CreateOrderForm(customerController);
-            createOrderForm.MdiParent = this;        // Setting the MDI Parent
+            createOrderForm.MdiParent = this; 
             createOrderForm.StartPosition = FormStartPosition.CenterParent;
         }
         public void pickClerkLogin()
         {
             loginToolStripMenuItem.Visible = false;
             logoutToolStripMenuItem.Visible = true;
-            //printToolStripMenuItem1.Visible = true;
             createOrderToolStripMenuItem.Visible = false;
             registerCustomerToolStripMenuItem.Visible = false;
             expiryReport.Visible = true;
             reportsToolStripMenuItem.Visible = true;
-            //salesReportToolStripMenuItem.Visible = false;
+            customersToolStripMenuItem.Visible = true;
         }
 
         public void TellerSellerLogin()
@@ -224,6 +201,7 @@ namespace OrderSystem.PresentationLayer
             registerCustomerToolStripMenuItem.Visible = true;
             reportsToolStripMenuItem.Visible = true;
             expiryReport.Visible = true;
+            customersToolStripMenuItem.Visible = true;
         }
 
         public void HideAll()
@@ -278,6 +256,21 @@ namespace OrderSystem.PresentationLayer
                 CreateNewCustomerForm();
             }
             customerForm.Show();
+        }
+
+        private void quantityInStockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+                if (catalogueForm == null)
+                {
+                    CreateNewCatalogueForm();
+                }
+
+                if (catalogueForm.catalogueClosed)
+                {
+                    CreateNewCatalogueForm();
+                }
+
+                catalogueForm.Show();
         }
     }
 }

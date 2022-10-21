@@ -224,5 +224,12 @@ namespace OrderSystem.PresentationLayer
                 PoppelprintDocument.Print();
             }
         }
+
+        private void printpreviewButton_Click(object sender, EventArgs e)
+        {
+            PoppelprintPreviewDialog.Document = PoppelprintDocument;
+            PoppelprintPreviewDialog.ShowDialog();
+            printButton.Visible = true;
+        }
     }
 }

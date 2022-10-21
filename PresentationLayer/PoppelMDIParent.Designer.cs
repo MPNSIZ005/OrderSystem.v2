@@ -53,7 +53,6 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registerCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewCatalogueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
@@ -247,14 +246,6 @@
             this.createOrderToolStripMenuItem.Text = "Create Order";
             this.createOrderToolStripMenuItem.Click += new System.EventHandler(this.createOrderToolStripMenuItem_Click);
             // 
-            // viewCatalogueToolStripMenuItem
-            // 
-            this.viewCatalogueToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewCatalogueToolStripMenuItem.Name = "viewCatalogueToolStripMenuItem";
-            this.viewCatalogueToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
-            this.viewCatalogueToolStripMenuItem.Text = "View Catalogue";
-            this.viewCatalogueToolStripMenuItem.Click += new System.EventHandler(this.viewCatalogueToolStripMenuItem_Click);
-            // 
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -278,7 +269,6 @@
             this.helpMenu,
             this.registerCustomerToolStripMenuItem,
             this.createOrderToolStripMenuItem,
-            this.viewCatalogueToolStripMenuItem,
             this.reportsToolStripMenuItem,
             this.customersToolStripMenuItem,
             this.loginToolStripMenuItem,
@@ -314,6 +304,7 @@
             this.quantityInStockToolStripMenuItem.Name = "quantityInStockToolStripMenuItem";
             this.quantityInStockToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.quantityInStockToolStripMenuItem.Text = "Quantity in Stock";
+            this.quantityInStockToolStripMenuItem.Click += new System.EventHandler(this.quantityInStockToolStripMenuItem_Click);
             // 
             // pickingListToolStripMenuItem1
             // 
@@ -383,7 +374,6 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registerCustomerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createOrderToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem viewCatalogueToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip;
